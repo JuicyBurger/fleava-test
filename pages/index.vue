@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid">
+  <div class="container-fluid bg-secondary">
       <section id="section1">
         <p class="logo p-5">LOGO</p>
         <SlideShow
@@ -7,16 +7,24 @@
         ></SlideShow>
       </section>
       <section id="section2">
-        
+        <SectionTwo 
+          :data="sectionTwoData"
+        />
       </section>
       <section id="section3">
-        Section 3
+        <SectionThree
+          :data="sectionThreeData"
+        />
       </section>
       <section id="section4">
-        Section 4
+        <SectionFour
+          :data="sectionFourData"
+        />
       </section>
       <section id="section5">
-        Section 5
+        <SectionFive
+          :data="sectionFiveData"
+        />
       </section>
       <section id="section6">
         <CarouselQuote
@@ -34,6 +42,10 @@ export default {
     return {
       quoteList: staticData.components[5].model.dataSlider,
       slidesData: staticData.components[0].model.dataSlider,
+      sectionTwoData:staticData.components[1].model,
+      sectionThreeData:staticData.components[2].model,
+      sectionFourData:staticData.components[3].model,
+      sectionFiveData:staticData.components[4].model,
     }
   },
   mounted() {

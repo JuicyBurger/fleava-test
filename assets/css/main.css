@@ -5,36 +5,391 @@
     scroll-behavior: smooth;
 }
 
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body, html {
+  font-size: 12px;
+  line-height: 1.8;
+  font-family: Open Sans, sans-serif;
+  font-weight: 400;
+  color: #5f5c68;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+
 .container {
   width: 100%;
   margin-right: auto;
   margin-left: auto;
 }
 
+section {
+  min-height: 100vh;
+  display: flex;
+}
+
+@media (min-width: 576px) {
+    .container {
+      max-width: 540px;
+    }
+  }
+  @media (min-width: 768px) {
+    .container {
+      max-width: 720px;
+    }
+  }
+  @media (min-width: 992px) {
+    .container {
+      max-width: 960px;
+    }
+  }
+  @media (min-width: 1200px) {
+    .container {
+      max-width: 1140px;
+    }
+  }
+
 .container-fluid {
     width: 100%;
 }
 
-.p-1 {
-    padding: 0.25rem !important;
+.flex {
+  display: flex !important;
+}
+
+.row {
+    --gutter-x: 0;
+    --gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(var(--gutter-y) * -1);
+    margin-right: calc(var(--gutter-x) * -.5);
+    margin-left: calc(var(--gutter-x) * -.5);
+  }
+
+.row > * {
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 100%;
+    padding-right: calc(var(--gutter-x) * .5);
+    padding-left: calc(var(--gutter-x) * .5);
+    margin-top: var(--gutter-y);
+}
+
+.bg-shade { background-color: #d8d6e2; }
+
+.bg-secondary { background-color: #f0f0f5; }
+
+.bg-dark { background-color: #5f5c68; }
+
+.bg-white { background-color: #fff; }
+
+.col {
+    flex: 1 0 0%;
+}
+
+.col-auto {
+    flex: 0 0 auto;
+    width: auto;
+  }
+  .col-1 {
+    flex: 0 0 auto;
+    width: 8.33333333%;
+  }
+  .col-2 {
+    flex: 0 0 auto;
+    width: 16.66666667%;
+  }
+  .col-3 {
+    flex: 0 0 auto;
+    width: 25%;
+  }
+  .col-4 {
+    flex: 0 0 auto;
+    width: 33.33333333%;
+  }
+  .col-5 {
+    flex: 0 0 auto;
+    width: 41.66666667%;
+  }
+  .col-6 {
+    flex: 0 0 auto;
+    width: 50%;
+  }
+  .col-7 {
+    flex: 0 0 auto;
+    width: 58.33333333%;
+  }
+  .col-8 {
+    flex: 0 0 auto;
+    width: 66.66666667%;
+  }
+  .col-9 {
+    flex: 0 0 auto;
+    width: 75%;
+  }
+  .col-10 {
+    flex: 0 0 auto;
+    width: 83.33333333%;
+  } 
+  .col-11 {
+    flex: 0 0 auto;
+    width: 91.66666667%;
+  }
+  .col-12 {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+
+@media (min-width: 576px) {
+    .col-sm-auto {
+      flex: 0 0 auto;
+      width: auto;
+    }
+    .col-sm-1 {
+      flex: 0 0 auto;
+      width: 8.33333333%;
+    }
+    .col-sm-2 {
+      flex: 0 0 auto;
+      width: 16.66666667%;
+    }
+    .col-sm-3 {
+      flex: 0 0 auto;
+      width: 25%;
+    }
+    .col-sm-4 {
+      flex: 0 0 auto;
+      width: 33.33333333%;
+    }
+    .col-sm-5 {
+      flex: 0 0 auto;
+      width: 41.66666667%;
+    }
+    .col-sm-6 {
+      flex: 0 0 auto;
+      width: 50%;
+    }
+    .col-sm-7 {
+      flex: 0 0 auto;
+      width: 58.33333333%;
+    }
+    .col-sm-8 {
+      flex: 0 0 auto;
+      width: 66.66666667%;
+    }
+    .col-sm-9 {
+      flex: 0 0 auto;
+      width: 75%;
+    }
+    .col-sm-10 {
+      flex: 0 0 auto;
+      width: 83.33333333%;
+    }
+    .col-sm-11 {
+      flex: 0 0 auto;
+      width: 91.66666667%;
+    }
+    .col-sm-12 {
+      flex: 0 0 auto;
+      width: 100%;
+    }
+}
+
+@media (min-width: 768px) {
+    .col-md-auto {
+      flex: 0 0 auto;
+      width: auto;
+    }
+    .col-md-1 {
+      flex: 0 0 auto;
+      width: 8.33333333%;
+    }
+    .col-md-2 {
+      flex: 0 0 auto;
+      width: 16.66666667%;
+    }
+    .col-md-3 {
+      flex: 0 0 auto;
+      width: 25%;
+    }
+    .col-md-4 {
+      flex: 0 0 auto;
+      width: 33.33333333%;
+    }
+    .col-md-5 {
+      flex: 0 0 auto;
+      width: 41.66666667%;
+    }
+    .col-md-6 {
+      flex: 0 0 auto;
+      width: 50%;
+    }
+    .col-md-7 {
+      flex: 0 0 auto;
+      width: 58.33333333%;
+    }
+    .col-md-8 {
+      flex: 0 0 auto;
+      width: 66.66666667%;
+    }
+    .col-md-9 {
+      flex: 0 0 auto;
+      width: 75%;
+    }
+    .col-md-10 {
+      flex: 0 0 auto;
+      width: 83.33333333%;
+    }
+    .col-md-11 {
+      flex: 0 0 auto;
+      width: 91.66666667%;
+    }
+    .col-md-12 {
+      flex: 0 0 auto;
+      width: 100%;
+    }
+}
+
+@media (min-width: 992px) {
+  .col-lg-auto {
+    flex: 0 0 auto;
+    width: auto;
+  }
+
+  .col-lg-1 {
+    flex: 0 0 auto;
+    width: 8.33333333%;
+  }
+
+  .col-lg-2 {
+    flex: 0 0 auto;
+    width: 16.66666667%;
+  }
+
+  .col-lg-3 {
+    flex: 0 0 auto;
+    width: 25%;
+  }
+
+  .col-lg-4 {
+    flex: 0 0 auto;
+    width: 33.33333333%;
+  }
+
+  .col-lg-5 {
+    flex: 0 0 auto;
+    width: 41.66666667%;
+  }
+
+  .col-lg-6 {
+    flex: 0 0 auto;
+    width: 50%;
+  }
+
+  .col-lg-7 {
+    flex: 0 0 auto;
+    width: 58.33333333%;
+  }
+
+  .col-lg-8 {
+    flex: 0 0 auto;
+    width: 66.66666667%;
+  }
+
+  .col-lg-9 {
+    flex: 0 0 auto;
+    width: 75%;
+  }
+
+  .col-lg-10 {
+    flex: 0 0 auto;
+    width: 83.33333333%;
+  }
+
+  .col-lg-11 {
+    flex: 0 0 auto;
+    width: 91.66666667%;
+  }
+
+  .col-lg-12 {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+}
+
+.p-1 { padding: 0.25rem !important; }
+  
+.p-2 { padding: 0.5rem !important; }
+
+.p-3 { padding: 1rem !important; }
+
+.p-4 { padding: 1.5rem !important; }
+
+.p-5 { padding: 3rem !important; }
+
+h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
+    font-family: Playfair Display, serif;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
   }
   
-.p-2 {
-    padding: 0.5rem !important;
+h1, .h1 {
+    font-size: calc(1.375rem + 1.5vw);
 }
 
-.p-3 {
-    padding: 1rem !important;
-}
+h1, .h1 {
+    font-size: calc(1.375rem + 1.5vw);
+  }
+  @media (min-width: 1200px) {
+    h1, .h1 {
+      font-size: 2.5rem;
+    }
+  }
+  
+  h2, .h2 {
+    font-size: calc(1.325rem + 0.9vw);
+  }
+  @media (min-width: 1200px) {
+    h2, .h2 {
+      font-size: 2rem;
+    }
+  }
+  
+  h3, .h3 {
+    font-size: calc(1.3rem + 0.6vw);
+  }
+  @media (min-width: 1200px) {
+    h3, .h3 {
+      font-size: 1.75rem;
+    }
+  }
+  
+  h4, .h4 {
+    font-size: calc(1.275rem + 0.3vw);
+  }
+  @media (min-width: 1200px) {
+    h4, .h4 {
+      font-size: 1.5rem;
+    }
+  }
+  
+  h5, .h5 {
+    font-size: 1.25rem;
+  }
+  
+  h6, .h6 {
+    font-size: 1rem;
+  }
 
-.p-4 {
-    padding: 1.5rem !important;
+.text-center {
+    text-align: center !important;
 }
-
-.p-5 {
-    padding: 3rem !important;
-}
-
 .logo {
     width: 100%;
     height: 100px;
