@@ -21,7 +21,7 @@ body, html {
 }
 
 .container {
-  width: 100%;
+  width: 80%;
   margin-right: auto;
   margin-left: auto;
 }
@@ -58,6 +58,11 @@ section {
 
 .flex {
   display: flex !important;
+}
+
+.center-items {
+  justify-content: center;
+  align-items: center;
 }
 
 .row {
@@ -322,14 +327,16 @@ section {
 }
 
 .p-1 { padding: 0.25rem !important; }
-  
 .p-2 { padding: 0.5rem !important; }
-
 .p-3 { padding: 1rem !important; }
-
 .p-4 { padding: 1.5rem !important; }
-
 .p-5 { padding: 3rem !important; }
+
+.m-1 { margin: 0.25rem !important; }
+.m-2 { margin: 0.5rem !important; }
+.m-3 { margin: 1rem !important; }
+.m-4 { margin: 1.5rem !important; }
+.m-5 { margin: 3rem !important; }
 
 h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
     font-family: Playfair Display, serif;
@@ -337,6 +344,7 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
     margin-bottom: 0.5rem;
     font-weight: 500;
     line-height: 1.2;
+    letter-spacing: 5px;
   }
   
 h1, .h1 {

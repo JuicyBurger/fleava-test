@@ -33,11 +33,6 @@
     z-index: 101;
 }
 
-.center-items {
-    justify-content: center;
-    align-items: center;
-}
-
 .bg-box {
     position: absolute;
     top: 0;

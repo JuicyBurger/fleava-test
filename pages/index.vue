@@ -11,7 +11,7 @@
           :data="sectionTwoData"
         />
       </section>
-      <section id="section3">
+      <section id="section3" class="bg-dark" style="padding: 150px 0px;">
         <SectionThree
           :data="sectionThreeData"
         />
@@ -21,7 +21,9 @@
           :data="sectionFourData"
         />
       </section>
-      <section id="section5">
+      <section id="section5" 
+        :style="{ background: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${sectionFiveData.featured.aws_file_url}/${sectionFiveData.featured.path}/${sectionFiveData.featured.filename.big})` }"
+      >
         <SectionFive
           :data="sectionFiveData"
         />
@@ -53,3 +55,12 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  #section5 {
+    object-fit: contain;
+    background-size: contain !important;
+    background-position: center !important;
+    background-repeat: no-repeat;
+  }
+</style>
