@@ -1,18 +1,27 @@
 <template>
-    <div class="container-fluid">
-        <div class="carousel-container">
-            <transition name="slide-img">
-                <template v-for="(li,idx) in list">
-                    <div class="carousel-slides" :key="idx" v-if="slideIndex == idx" style="text-align:center">
-                        <p class="quote-text" v-html="li.description"></p>
-                        <p class="quote-text" v-html="li.title"></p>
-                    </div>
-                </template>
-            </transition>
+    <div class="container flex center-items" style="padding: 100px 0px;">
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <client-only>
+            <carousel 
+              :loop="true" 
+              :autoplay="true" 
+              :navigationEnabled="false" 
+              :paginationEnabled="true"
+              :perPage="1"
+              :paginationColor="'#c7c5d1'"
+              :autoplayTimeout="6000"
+            >
+              <slide class="text-center" v-for="(li,idx) in list" :key="idx">
+                <h4 class="quote-text" style="letter-spacing: unset; line-height: 2.5rem;" v-html="li.description"></h4>
+                <p class="quote-text" style="margin-top: 50px;" v-html="li.title"></p>
+              </slide>
+            </carousel>
+          </client-only>
         </div>
-        <div style="text-align:center">
-            <span v-for="(sl,idx) in list" :key="idx" class="dot" @click="slideIndex = idx"></span>
-        </div>
+        <div class="col-md-4"></div>
+      </div>
     </div>
 </template>
 
@@ -23,8 +32,6 @@
             return {
                 slideIndex: 1,
             }
-        },
-        methods: {
         },
         mounted() {
         }
@@ -83,4 +90,7 @@
 .slide-img-leave-active {
   transition: transform 1s ease-in-out;
 }
-</style>
+
+.VueCarousel-slide {
+  text-align: center;
+}

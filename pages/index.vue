@@ -1,7 +1,9 @@
 <template>
   <div class="container-fluid bg-secondary">
       <section id="section1">
-        <p class="logo p-5">LOGO</p>
+        <div class="logo">
+          <img :src="`https://jannataresort.com/_nuxt/img/1336c61.png`" alt="logo image" width="120" height="94">
+        </div>
         <SlideShow
           :slidesData="slidesData"
         ></SlideShow>
@@ -28,7 +30,7 @@
           :data="sectionFiveData"
         />
       </section>
-      <section id="section6">
+      <section id="section6" style="min-height: inherit;">
         <CarouselQuote
           :list="quoteList"
         ></CarouselQuote>
@@ -38,6 +40,7 @@
 
 <script>
 import staticData from '~/static/homepage.json'
+// import SmoothScroll from '~/static/smooth-scroll.js'
 export default {
   name: 'IndexPage',
   data() {
@@ -50,8 +53,10 @@ export default {
       sectionFiveData:staticData.components[4].model,
     }
   },
-  mounted() {
-    console.log(staticData)
+  mounted () {
+      // if(!window.smoothScroll){
+      //   window.smoothScroll = SmoothScroll(document, 120, 12);
+      // }
   }
 }
 </script>
@@ -62,5 +67,15 @@ export default {
     background-size: contain !important;
     background-position: center !important;
     background-repeat: no-repeat;
+    background-size:100% 100% !important;
+  }
+
+  .logo {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 1000;
+    padding: 100px;
   }
 </style>

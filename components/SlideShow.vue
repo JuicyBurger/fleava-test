@@ -1,99 +1,77 @@
 <template>
     <div class="container-fluid">
-        <div class="slideshow-container">
-            <div class="navigator-container">
-                <div style="text-align:center">
-                    <span v-for="(sl,idx) in slidesData" :key="idx" class="slideshow-dot" @click="slideIndex = idx"></span>
-                    <!-- <span class="slideshow-dot" @click="currentSlide(2)"></span>
-                    <span class="slideshow-dot" @click="currentSlide(3)"></span> -->
-                </div>
+      <client-only>
+        <carousel 
+          :loop="true" 
+          :autoplay="true" 
+          :navigationEnabled="true" 
+          :paginationEnabled="true"
+          :perPage="1"
+          :paginationColor="'#c7c5d1'"
+          :autoplayTimeout="600000"
+        >
+          <slide class="text-center" v-for="(sl,idx) in slidesData" :key="idx">
+            <div class="caption-container">
+              <div class="caption-text">
+                {{ sl }}
+              </div>
             </div>
-            <transition name="slide-img">
-                <template v-for="(sl,idx) in slidesData">
-                    <div class="slideshow-slides" :key="idx" v-if="slideIndex == idx">
-                        <img :src="`${sl.featured.aws_file_url}/${sl.featured.path}/${sl.featured.filename.raw}`" style="width:100%; height: 100%;">
-                        <div class="caption-text">Caption Text</div>
-                    </div>
-                </template>
-            </transition>
-        </div>
+            <img :src="`${sl.featured.aws_file_url}/${sl.featured.path}/${sl.featured.filename.raw}`" class="carousel-img">
+          </slide>
+        </carousel>
+      </client-only>
     </div>
 </template>
 
 <script>
     export default {
         props:["slidesData"],
-        data() {
-            return {
-                slideIndex: 0,
-            }
-        },
-        methods: {
-
-        },
-        mounted() {
-        }
     }
 </script>
 
 <style scoped>
-.navigator-container {
+
+  .VueCarousel {
+    max-height: 100vh;
+  }
+  
+  * >>> .VueCarousel-pagination {
+    position: absolute !important;
+    bottom: 0;
+    text-align: left !important;
+    padding: 100px 200px;
+  }
+  * >>> .VueCarousel-navigation {
     position: absolute;
-    bottom: 50px;
-    width: 100%;
+    bottom: 80px;
+    right: 200px;
     z-index: 1000;
-}
+    padding: 30px;
+  }
+  * >>> .VueCarousel-navigation-button {
+    color: white !important;
+  }
 
-.slideshow-container {
-    height: 100vh;
-}
-
-.slideshow-slides {
-    position: absolute;
+  .carousel-img {
+    object-fit: cover;
     width: 100%;
-    height: 100%;
-}
+  }
 
-.caption-text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
-}
+  .caption-container {
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 
-.slideshow-dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
-
-.active, .slideshow-dot:hover {
-  background-color: #717171;
-}
-
-
-.slide-img-enter-from {
-  left: -100%;
-}
-.slide-img-enter-to {
-  left: -100%;
-  transform: translate(100%, 0);
-}
-.slide-img-enter-active {
-  transition: transform 1s ease-in-out;
-}
-.slide-img-leave-to {
-  transform: translate(100%, 0);
-}
-.slide-img-leave-active {
-  transition: transform 1s ease-in-out;
-}
+  .caption-text {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    z-index: 1000;
+  }
 </style>
